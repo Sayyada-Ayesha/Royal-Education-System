@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply font-body text-navy-900 bg-white;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+
+  ::selection {
+    @apply bg-teal-500/20 text-navy-900;
+  }
+}
+
+@layer components {
+  .container-wide {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-narrow {
+    @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-teal-600 text-white font-semibold rounded-lg 
+           hover:bg-teal-700 transition-all duration-300 shadow-md hover:shadow-lg 
+           focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2
+           text-sm sm:text-base;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-white text-navy-900 font-semibold rounded-lg 
+           border-2 border-navy-200 hover:border-teal-500 hover:text-teal-700 transition-all duration-300
+           focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2
+           text-sm sm:text-base;
+  }
+
+  .btn-accent {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-navy-900 text-white font-semibold rounded-lg
+           hover:bg-navy-800 transition-all duration-300 shadow-md hover:shadow-lg
+           focus:outline-none focus:ring-2 focus:ring-navy-500 focus:ring-offset-2
+           text-sm sm:text-base;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-navy-100/50 p-6 hover:shadow-md transition-shadow duration-300;
+  }
+
+  .card-elevated {
+    @apply bg-white rounded-xl shadow-md border border-navy-100/30 p-6 sm:p-8 hover:shadow-lg transition-shadow duration-300;
+  }
+
+  .gradient-navy {
+    @apply bg-gradient-to-br from-navy-900 via-navy-800 to-navy-900;
+  }
+
+  .gradient-teal {
+    @apply bg-gradient-to-br from-teal-600 to-teal-800;
+  }
+
+  .gradient-warm {
+    @apply bg-gradient-to-br from-cream-50 to-sand-50;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-teal-600 to-navy-700;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 border border-navy-200 rounded-lg bg-white text-navy-900
+           placeholder:text-navy-400 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500
+           transition-colors duration-200;
+  }
+
+  .label-field {
+    @apply block text-sm font-medium text-navy-700 mb-1.5;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
