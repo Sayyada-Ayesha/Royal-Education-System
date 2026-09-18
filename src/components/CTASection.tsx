@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 interface CTASectionProps {
   title: string;
   description: string;
-  // Support both prop patterns for compatibility
   primaryButtonText?: string;
   primaryButtonLink?: string;
   secondaryButtonText?: string;
@@ -15,27 +14,27 @@ interface CTASectionProps {
   className?: string;
 }
 
-const variantStyles = {
-  navy: 'bg-navy-900 text-white',
-  teal: 'bg-teal-700 text-white',
-  warm: 'bg-gradient-to-br from-cream-50 to-sand-50 text-navy-900',
+const variantStyles: Record<string, string> = {
+  navy: 'gradient-ink text-white',
+  teal: 'gradient-ink text-white',
+  warm: 'bg-ivory-100 text-ink-950',
 };
 
-const buttonVariants = {
+const buttonVariants: Record<string, { primary: string; secondary: string; text: string }> = {
   navy: {
-    primary: 'bg-teal-500 text-white hover:bg-teal-600',
-    secondary: 'border-2 border-white text-white hover:bg-white/10',
-    text: 'text-cream-50/90',
+    primary: 'btn-primary',
+    secondary: 'border-1.5 border-white/25 text-white hover:bg-white/10 hover:border-champagne-400/40',
+    text: 'text-ivory-200/80',
   },
   teal: {
-    primary: 'bg-white text-teal-700 hover:bg-cream-50',
-    secondary: 'border-2 border-white text-white hover:bg-white/10',
-    text: 'text-white/90',
+    primary: 'btn-primary',
+    secondary: 'border-1.5 border-white/25 text-white hover:bg-white/10 hover:border-champagne-400/40',
+    text: 'text-ivory-200/80',
   },
   warm: {
-    primary: 'bg-teal-600 text-white hover:bg-teal-700',
-    secondary: 'border-2 border-navy-300 text-navy-800 hover:bg-navy-100',
-    text: 'text-navy-700',
+    primary: 'btn-primary',
+    secondary: 'btn-secondary',
+    text: 'text-ink-500',
   },
 };
 
@@ -55,24 +54,24 @@ export const CTASection: React.FC<CTASectionProps> = ({
   const pLink = primaryButtonLink || primaryCTA?.link || '/';
   const sText = secondaryButtonText || secondaryCTA?.text;
   const sLink = secondaryButtonLink || secondaryCTA?.link;
-  const styles = buttonVariants[variant];
+  const styles = buttonVariants[variant] || buttonVariants.navy;
 
   return (
-    <section className={`py-20 px-4 ${variantStyles[variant]} ${className}`}>
-      <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl md:text-5xl font-bold mb-6 font-heading">{title}</h2>
-        <p className={`text-lg md:text-xl mb-10 ${styles.text}`}>{description}</p>
+    <section className={`section-padding px-4 ${variantStyles[variant] || variantStyles.navy} ${className}`}>
+      <div className="site-container-narrow text-center">
+        <h2 className="font-heading font-bold mb-5" style={{ fontSize: 'var(--fs-h2)' }}>{title}</h2>
+        <p className={`mb-10 leading-relaxed ${styles.text}`} style={{ fontSize: 'var(--fs-body-lg)' }}>{description}</p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
             to={pLink}
-            className={`px-8 py-4 font-bold rounded-lg transition-all text-lg w-full sm:w-auto text-center ${styles.primary}`}
+            className={`${styles.primary} px-8 py-4 font-bold rounded-xl transition-all w-full sm:w-auto text-center`}
           >
             {pText}
           </Link>
           {sText && sLink && (
             <Link
               to={sLink}
-              className={`px-8 py-4 font-bold rounded-lg transition-all text-lg w-full sm:w-auto text-center ${styles.secondary}`}
+              className={`px-8 py-4 font-bold rounded-xl transition-all w-full sm:w-auto text-center inline-flex items-center justify-center ${styles.secondary}`}
             >
               {sText}
             </Link>

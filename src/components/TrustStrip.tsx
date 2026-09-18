@@ -1,43 +1,43 @@
 import React from 'react';
-import { Network, Cpu, GraduationCap, Users } from 'lucide-react';
+import { Network, Cpu, GraduationCap, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export const TrustStrip: React.FC = () => {
   const items = [
     {
-      icon: <Network className="w-6 h-6 text-teal-600" />,
-      text: 'Structured Learning Ecosystem',
+      icon: <Network className="w-5 h-5 text-champagne-600" />,
+      text: 'A Unified Learning System',
     },
     {
-      icon: <Cpu className="w-6 h-6 text-teal-600" />,
-      text: 'Academics + Technology + Communication',
+      icon: <Cpu className="w-5 h-5 text-champagne-600" />,
+      text: 'From Knowledge to Real-World Capability',
     },
     {
-      icon: <GraduationCap className="w-6 h-6 text-teal-600" />,
+      icon: <GraduationCap className="w-5 h-5 text-champagne-600" />,
       text: 'KG to Grade 8 & Beyond',
     },
     {
-      icon: <Users className="w-6 h-6 text-teal-600" />,
-      text: 'Gulf Families Trust Us',
+      icon: <Sparkles className="w-5 h-5 text-champagne-600" />,
+      text: 'Build the Skills. Build Your Future.',
     },
   ];
 
   return (
-    <section className="bg-cream-50 border-b border-sand-50/50 py-6 px-4 z-20 relative shadow-sm">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <section className="bg-pearl-100 border-b border-ink-100/8 py-5 px-4 z-20 relative shadow-sm">
+      <div className="site-container">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {items.map((item, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="flex items-center justify-center space-x-3 text-center md:text-left"
+              transition={{ duration: 0.5, delay: index * 0.08 }}
+              className="flex items-center justify-center sm:justify-start space-x-3 text-center sm:text-left p-2"
             >
-              <div className="flex-shrink-0 bg-white p-2 rounded-full shadow-sm border border-sand-50">
+              <div className="flex-shrink-0 bg-white p-2 rounded-xl shadow-sm border border-ink-100/8">
                 {item.icon}
               </div>
-              <span className="font-semibold text-navy-800 text-sm md:text-base leading-tight">
+              <span className="font-semibold text-ink-950 text-xs md:text-sm leading-snug">
                 {item.text}
               </span>
             </motion.div>
@@ -47,3 +47,5 @@ export const TrustStrip: React.FC = () => {
     </section>
   );
 };
+
+export default TrustStrip;

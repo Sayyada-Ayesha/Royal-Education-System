@@ -58,7 +58,7 @@ export const faqData: FAQItem[] = [
     id: 'faq-7',
     question: 'Do you offer discounts for siblings or long-term commitments?',
     answer:
-      'Yes. We offer 5% discount on 3-month plans, 10% on 6-month plans, and 15–20% sibling discount on additional enrolments.',
+      'Yes. For our one-year grade pathways, we offer advance payment savings: 3% discount when paying 3 months in advance, 5% when paying 6 months in advance, and 10% when paying the full year in advance. We also offer a 15–20% sibling discount on additional family enrolments.',
     category: 'Pricing',
   },
   {
@@ -138,6 +138,62 @@ export const faqData: FAQItem[] = [
       'We are not ordinary per-class tutoring. Royal Education System is a structured learning ecosystem that integrates academics, technology, communication, life skills and character development into one cohesive learning journey.',
     category: 'General',
   },
+  {
+    id: 'faq-19',
+    question: 'Are classes live? Do you provide session recordings?',
+    answer:
+      'All learning sessions are conducted live. In order to nurture active participation, two-way dialogue, guided practice, and disciplined habits, RES does not provide class recordings as a standard learning model. Live attendance is where real learning, confidence, and engagement happen.',
+    category: 'Policies',
+  },
+  {
+    id: 'faq-20',
+    question: 'Can learners keep their camera off? What is your privacy policy?',
+    answer:
+      'Yes. To protect learner privacy and comfort, students (especially young children) are not required to keep their cameras turned on during normal sessions. Instructors teach with cameras on where applicable, complemented by interactive screen sharing, live software demonstrations, digital whiteboards, and visual slides.',
+    category: 'Policies',
+  },
+  {
+    id: 'faq-21',
+    question: 'Does RES follow CBSE, British, American, or Federal school curriculum?',
+    answer:
+      'No. The Royal Education System operates its own independent, proprietary curriculum. We do NOT adopt CBSE, British, American, Federal, Government, or Private school curriculum as the RES curriculum. Learners enrolled in traditional schools worldwide can access our separate Free Academic Doubt Support channel, while Pakistani learners can additionally opt for personalized Paid Personal Tuition tailored to their day-school syllabus.',
+    category: 'Academics',
+  },
+  {
+    id: 'faq-22',
+    question: 'How does the Free Academic Doubt Support work, and who can access it?',
+    answer:
+      'Free Academic Doubt Support is an international service available to learners already studying in external schools across Pakistan, the UAE, Saudi Arabia, Qatar, Kuwait, Bahrain, Oman, the UK, the USA, and other supported countries. Students submit individual academic questions or difficult concepts to the RES support channel. Our academic team reviews the doubt and provides structured guidance. If deeper discussion is needed, the learner joins a free peer-accessible live Doubt Session. RES does not adopt their school curriculum; this is strictly question-and-doubt assistance, free where offered.',
+    category: 'Support',
+  },
+  {
+    id: 'faq-23',
+    question: 'What is the difference between Free Doubt Support, Pakistan Paid Tuition, and the RES Academic Programme?',
+    answer:
+      'RES offers three distinct pathways: 1) Free Academic Doubt Support is an international question-based support channel for external school learners worldwide (free where offered); 2) Paid Personal Tuition / Coaching is specifically for Pakistani learners wanting personalized coaching based on their existing school syllabus (Federal, Government, Private), featuring Urdu voice/language support where needed, with minimum base fees starting from PKR 1,000 admission and from PKR 1,000/month; 3) The RES Academic Programme is our complete, proprietary learning system following our own curriculum (KG–Grade 8), encompassing academics, practical math, coding, AI, ethics, and included internal Study & Practice sessions, starting from PKR 5,000 admission and from PKR 5,000/month (billed as the RES Academic Programme Fee, never a school fee).',
+    category: 'Pricing',
+  },
+  {
+    id: 'faq-24',
+    question: 'How does Need-Based Scholarship assistance work?',
+    answer:
+      'Need-based scholarship support may be available, subject to assessment and available funding. Intended for families facing genuine financial hardship, eligible applicants may receive up to 50% fee assistance across our academic programmes. Applications are reviewed confidentially by our scholarship committee without guaranteed automatic approval.',
+    category: 'Scholarships',
+  },
+  {
+    id: 'faq-25',
+    question: 'How are fees paid, and are they paid in advance?',
+    answer:
+      'All relevant programme fees are paid in advance. For our full one-year grade pathways, families can choose: Pay Monthly in advance, Pay 3 Months in advance (3% discount), Pay 6 Months in advance (5% discount), or Pay Full Learning Year in advance (10% discount). These are payment arrangements, not programme durations.',
+    category: 'Pricing',
+  },
+  {
+    id: 'faq-26',
+    question: 'What are internal RES Study, Practice & Support sessions?',
+    answer:
+      'When an RES learner receives homework, activities, or coding exercises from our curriculum, our system includes designated work and practice sessions. In these sessions, learners complete assignments with direct access to mentors for instant questions, concept practice, and guidance.',
+    category: 'Support',
+  },
 ];
 
 export const faqCategories = [
@@ -145,8 +201,11 @@ export const faqCategories = [
   'General',
   'Programmes',
   'Academics',
-  'Technology',
+  'Support',
+  'Policies',
   'Pricing',
+  'Scholarships',
+  'Technology',
   'Assessment',
   'Demo',
   'Enrolment',

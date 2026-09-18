@@ -1,93 +1,123 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { 
-  GraduationCap, Target, Users, BookOpen, 
-  Lightbulb, Shield, Code, MessageCircle
+  GraduationCap, Target, BookOpen, 
+  Lightbulb, Shield, Code, MessageCircle 
 } from 'lucide-react';
 import PageHero from '../components/PageHero';
-import SectionHeader from '../components/SectionHeader';
 import CTASection from '../components/CTASection';
-import { useScrollReveal } from '../hooks/useScrollReveal';
+import FoundersSection from '../components/FoundersSection';
+import DigitalCharactersSection from '../components/DigitalCharactersSection';
+import { mediaConfig } from '../data/mediaConfig';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
 export default function AboutPage() {
-  const [revealRef, isVisible] = useScrollReveal();
-
+  useDocumentTitle('About | The Royal Education System');
   const learnerNeeds = [
     { title: 'Knowledge & Understanding', icon: BookOpen, desc: 'Deep comprehension over superficial memorization.' },
-    { title: 'Practical Skills', icon: Target, desc: 'Ability to apply concepts to real-world scenarios.' },
-    { title: 'Technology Proficiency', icon: Code, desc: 'Fluency in the digital tools that run the modern world.' },
-    { title: 'Communication', icon: MessageCircle, desc: 'Expressing ideas clearly, confidently, and persuasively.' },
-    { title: 'Confidence', icon: Lightbulb, desc: 'Self-assurance stemming from genuine capability.' },
-    { title: 'Character', icon: Shield, desc: 'Integrity, resilience, and strong ethical foundations.' }
+    { title: 'Practical Capability', icon: Target, desc: 'Ability to apply concepts to real-world scenarios.' },
+    { title: 'Technology Proficiency', icon: Code, desc: 'Fluency in the computational and AI tools shaping the future.' },
+    { title: 'Clear Communication', icon: MessageCircle, desc: 'Expressing ideas clearly, persuasively, and with confidence.' },
+    { title: 'Authentic Confidence', icon: Lightbulb, desc: 'Self-assurance stemming from genuine, tested competence.' },
+    { title: 'Character & Values', icon: Shield, desc: 'Integrity, resilience, empathy, and strong moral grounding.' },
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-ivory-50">
       <PageHero 
         title="About Royal Education System" 
-        subtitle="Redefining education for the modern era."
+        subtitle="A Global, Structured & Unified Learning System. Education should prepare a learner for life—not only for an examination."
+        breadcrumbs={[{ label: 'Home', path: '/' }, { label: 'About' }]}
       />
       
-      {/* Our Story */}
-      <section className="py-24 bg-cream-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div ref={revealRef}>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={isVisible ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6 }}
-              >
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-teal-100 text-teal-800 rounded-full text-sm font-bold mb-6">
-                  <GraduationCap size={18} /> Our Origin
-                </div>
-                <h2 className="text-3xl md:text-5xl font-jakarta font-bold text-navy-900 mb-6 leading-tight">
-                  Founded by IT Graduates who saw a broken system.
-                </h2>
-                <div className="space-y-4 text-lg text-slate-600">
-                  <p>
-                    Royal Education System was founded by two Information Technology graduates who noticed a glaring gap in traditional education. They saw students graduating with excellent grades but lacking the practical skills, technological literacy, and confidence needed in the real world.
-                  </p>
-                  <p>
-                    They realized that education shouldn't just be about passing exams; it should be about building capability. They set out to create a system that goes beyond rote memorization.
-                  </p>
-                  <p className="font-semibold text-navy-900">
-                    Our mission is simple: to make learning practical, structured, and future-ready.
-                  </p>
-                </div>
-              </motion.div>
+      {/* 1. Origin & Story (Concise, Card-Driven) */}
+      <section className="py-20 px-4 bg-white border-b border-ink-100">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-12 gap-10 items-center">
+            <div className="md:col-span-7">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-champagne-50 text-champagne-700 rounded-full text-xs font-bold uppercase tracking-wider mb-4 border border-champagne-200">
+                <GraduationCap className="w-3.5 h-3.5 text-champagne-600" /> Our Founders
+              </div>
+              <h2 className="font-extrabold font-heading text-ink-900 mb-4 leading-tight" style={{ fontSize: 'var(--fs-h2)' }}>
+                Founded by Sayyada Ayesha & Malik Ayan Ahmed
+              </h2>
+              <div className="space-y-3 text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+                <p>
+                  Royal Education System was founded by <strong className="text-ink-900">Sayyada Ayesha</strong> and <strong className="text-ink-900">Malik Ayan Ahmed</strong>, two Information Technology graduates who recognized a critical gap in conventional education: students graduating with high exam marks, but struggling to code, solve real-world problems, or speak with confidence.
+                </p>
+                <p>
+                  They realized education should not feel fragmented. A learner should not need eight different places for academics, tutoring, technology, communication, faith, projects and personal development. RES was designed to bring it all together.
+                </p>
+              </div>
+
+              <div className="p-4 bg-champagne-50/70 rounded-2xl border border-champagne-200/80 mb-6">
+                <span className="text-xs font-bold text-champagne-800 block mb-1">Our Vision:</span>
+                <p className="text-xs text-champagne-700 italic">
+                  "Education should prepare a learner for life—not only for an examination."
+                </p>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <Link
+                  to="/enrol"
+                  className="px-6 py-3 bg-champagne-400 text-ink-950 font-bold rounded-xl text-xs hover:bg-champagne-300 transition-all shadow-md"
+                >
+                  Enrol Now
+                </Link>
+                <Link
+                  to="/programmes"
+                  className="px-6 py-3 bg-ivory-50 text-ink-900 font-bold rounded-xl text-xs hover:bg-ivory-100 transition-all"
+                >
+                  Explore Programmes
+                </Link>
+              </div>
             </div>
-            <div className="relative">
-              <div className="absolute inset-0 bg-teal-600 rounded-2xl transform translate-x-4 translate-y-4 opacity-20"></div>
-              <img 
-                src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop" 
-                alt="Founders discussing" 
-                className="rounded-2xl shadow-xl relative z-10"
-              />
+
+            <div className="md:col-span-5">
+              <div className="rounded-3xl overflow-hidden shadow-xl border-4 border-ivory-50 aspect-[4/3] relative">
+                <img 
+                  src={mediaConfig.heroImages[0]?.src || '/placeholder.jpg'} 
+                  alt="Students engaged in future-ready learning" 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink-950/80 via-transparent to-transparent flex items-end p-6">
+                  <span className="text-white text-xs font-bold">
+                    Education Without Boundaries • Learning Without Limits
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* What Learners Need */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <SectionHeader 
-            title="What Modern Learners Actually Need" 
-            description="The 21st century requires more than just academic knowledge. We focus on developing the complete individual."
-            align="center"
-          />
+      {/* 2. What Modern Learners Need */}
+      <section className="py-20 px-4 bg-ivory-50 border-b border-slate-100">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <span className="text-xs font-bold uppercase tracking-widest text-champagne-600 bg-champagne-50 px-3 py-1 rounded-full border border-champagne-200">
+              The 6 Core Needs
+            </span>
+            <h2 className="font-extrabold font-heading text-ink-900 mt-2 mb-2" style={{ fontSize: 'var(--fs-h2)' }}>
+              What 21st Century Learners Actually Need
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-600">
+              Moving beyond narrow textbook memorization toward holistic intellectual maturity.
+            </p>
+          </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {learnerNeeds.map((need, index) => {
               const Icon = need.icon;
               return (
-                <div key={index} className="bg-sand-50 p-8 rounded-2xl border border-slate-100">
-                  <div className="w-14 h-14 bg-navy-900 text-white rounded-xl flex items-center justify-center mb-6">
-                    <Icon size={28} />
+                <div key={index} className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                  <div>
+                    <div className="w-12 h-12 bg-champagne-50 text-champagne-600 rounded-xl flex items-center justify-center mb-4">
+                      <Icon className="w-6 h-6" />
+                    </div>
+                    <h3 className="text-base font-bold text-ink-900 mb-1">{need.title}</h3>
+                    <p className="text-xs text-slate-600 leading-relaxed">{need.desc}</p>
                   </div>
-                  <h3 className="text-xl font-bold text-navy-900 mb-3 font-jakarta">{need.title}</h3>
-                  <p className="text-slate-600">{need.desc}</p>
                 </div>
               );
             })}
@@ -95,47 +125,30 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* The Ecosystem (Value Prop) */}
-      <section className="py-24 bg-navy-900 text-white">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-5xl font-jakarta font-bold mb-8">A Structured Learning Ecosystem</h2>
-          <p className="text-xl text-slate-300 max-w-3xl mx-auto mb-16">
-            Many places offer math tuition. Others offer coding camps or debate clubs. We integrate all of these into a single, cohesive progression.
-          </p>
-          
-          <div className="flex flex-col md:flex-row justify-center items-center gap-8">
-            <div className="w-48 h-48 rounded-full border-4 border-teal-500 flex items-center justify-center p-6 text-center bg-navy-800/50 backdrop-blur-sm z-10 md:-mr-12">
-              <span className="font-bold text-lg">Academic<br/>Excellence</span>
-            </div>
-            <div className="w-48 h-48 rounded-full border-4 border-accent-gold flex items-center justify-center p-6 text-center bg-navy-800/50 backdrop-blur-sm z-20">
-              <span className="font-bold text-lg">Technology<br/>Mastery</span>
-            </div>
-            <div className="w-48 h-48 rounded-full border-4 border-cream-50 flex items-center justify-center p-6 text-center bg-navy-800/50 backdrop-blur-sm z-10 md:-ml-12">
-              <span className="font-bold text-lg">Character &<br/>Life Skills</span>
-            </div>
-          </div>
-          
-          <p className="mt-16 text-lg text-slate-300 max-w-2xl mx-auto">
-            By bringing these critical elements under one structured pathway—from Juniors through Gems and into Nova—we ensure your child develops holistically without gaps in their capability.
+      {/* 3. The People Behind the Vision (Our Founders) */}
+      <FoundersSection />
+
+      {/* 4. Official Digital Brand Characters (Mr. Rook & Mrs. Rook) */}
+      <DigitalCharactersSection />
+
+      {/* 4. Supplementary Positioning Statement */}
+      <section className="py-12 px-4 bg-ivory-50">
+        <div className="max-w-3xl mx-auto p-6 bg-white rounded-2xl border border-slate-200 text-center shadow-sm">
+          <h4 className="text-xs uppercase font-bold tracking-widest text-slate-400 mb-1">
+            Independent Learning System
+          </h4>
+          <p className="text-xs text-slate-600 leading-relaxed">
+            This is an independent online learning system. It supports learners and families through academic, conceptual, practical, personal, technological and other learning opportunities. It does not claim government accreditation, school licensing or formal affiliation unless specifically stated for a verified program or partnership.
           </p>
         </div>
       </section>
 
-      {/* Vision */}
-      <section className="py-24 bg-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <Target className="w-16 h-16 text-teal-600 mx-auto mb-8" />
-          <h2 className="text-3xl md:text-4xl font-jakarta font-bold text-navy-900 mb-6">Our Vision</h2>
-          <p className="text-2xl text-slate-600 italic leading-relaxed">
-            "To be the premier educational ecosystem that bridges the gap between traditional schooling and real-world capability, producing confident, competent, and character-driven individuals ready to lead the future."
-          </p>
-        </div>
-      </section>
-      
-      <CTASection 
-        title="Experience the Difference" 
-        description="Book a free assessment today and see how our structured approach can benefit your child." 
+      <CTASection
+        title="Ready to Experience the Difference?"
+        description="Schedule a complimentary diagnostic learning assessment to discover your learner's unique strengths and conceptual readiness."
         primaryCTA={{ text: "Book Free Assessment", link: "/free-assessment" }}
+        secondaryCTA={{ text: "Explore Programs", link: "/curriculum" }}
+        variant="navy"
       />
     </div>
   );

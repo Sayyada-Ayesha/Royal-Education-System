@@ -3,6 +3,44 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    /* ============================================================
+       ROYAL EDUCATION SYSTEM — FLUID TYPOGRAPHY SCALE
+       ============================================================ */
+    --fs-display: clamp(2.25rem, 4vw, 3.65rem);
+    --fs-hero: clamp(2rem, 3.4vw, 3rem);
+    --fs-h1: clamp(1.85rem, 2.8vw, 2.5rem);
+    --fs-h2: clamp(1.5rem, 2.2vw, 2.1rem);
+    --fs-h3: clamp(1.25rem, 1.8vw, 1.6rem);
+    --fs-h4: clamp(1.05rem, 1.4vw, 1.25rem);
+    --fs-body-lg: clamp(1rem, 1.2vw, 1.125rem);
+    --fs-body: clamp(0.9rem, 0.95vw, 1rem);
+    --fs-small: clamp(0.8rem, 0.8vw, 0.875rem);
+    --fs-eyebrow: clamp(0.6875rem, 0.7vw, 0.75rem);
+
+    /* ============================================================
+       FLUID SPACING SCALE
+       ============================================================ */
+    --space-xs: clamp(0.5rem, 1vw, 0.75rem);
+    --space-sm: clamp(0.75rem, 1.5vw, 1rem);
+    --space-md: clamp(1rem, 2vw, 1.5rem);
+    --space-lg: clamp(1.5rem, 3vw, 2.5rem);
+    --space-xl: clamp(2.5rem, 5vw, 4rem);
+    --space-2xl: clamp(3.5rem, 7vw, 5.5rem);
+    --space-3xl: clamp(5rem, 9vw, 7.5rem);
+
+    /* ============================================================
+       ROYAL COLOR TOKENS (CSS Custom Properties)
+       ============================================================ */
+    --color-ink: #0B1722;
+    --color-midnight: #102535;
+    --color-ivory: #F7F3EA;
+    --color-pearl: #FCFAF5;
+    --color-champagne: #C7A66A;
+    --color-wine: #6B3948;
+    --color-sage: #71847D;
+  }
+
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
@@ -10,95 +48,245 @@
   }
 
   body {
-    @apply font-body text-navy-900 bg-white;
+    @apply font-body;
+    color: var(--color-ink);
+    background-color: var(--color-ivory);
     overflow-x: hidden;
+    font-size: var(--fs-body);
+    line-height: 1.7;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading;
+    @apply font-heading font-bold tracking-tight;
+    color: inherit;
+    line-height: 1.15;
+  }
+
+  /* Global Contrast Rules: Ensure all headings in dark sections are bright and legible */
+  .text-white h1, .text-white h2, .text-white h3, .text-white h4, .text-white h5, .text-white h6,
+  .gradient-ink h1, .gradient-ink h2, .gradient-ink h3, .gradient-ink h4, .gradient-ink h5, .gradient-ink h6,
+  .bg-ink-900 h1, .bg-ink-900 h2, .bg-ink-900 h3, .bg-ink-900 h4, .bg-ink-900 h5, .bg-ink-900 h6,
+  .bg-ink-950 h1, .bg-ink-950 h2, .bg-ink-950 h3, .bg-ink-950 h4, .bg-ink-950 h5, .bg-ink-950 h6,
+  .bg-midnight h1, .bg-midnight h2, .bg-midnight h3, .bg-midnight h4, .bg-midnight h5, .bg-midnight h6 {
+    color: #FFFFFF;
   }
 
   ::selection {
-    @apply bg-teal-500/20 text-navy-900;
+    background: rgba(199, 166, 106, 0.2);
+    color: var(--color-ink);
   }
 }
 
 @layer components {
-  .container-wide {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  /* ============================================================
+     GLOBAL CONTAINER SYSTEM
+     ============================================================ */
+  .site-container {
+    width: min(100% - clamp(2rem, 5vw, 4rem), 1280px);
+    margin-inline: auto;
   }
 
-  .container-narrow {
-    @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8;
+  .site-container-narrow {
+    width: min(100% - clamp(2rem, 5vw, 4rem), 880px);
+    margin-inline: auto;
+  }
+  
+  .site-container-wide {
+    width: min(100% - clamp(1.5rem, 4vw, 3rem), 1440px);
+    margin-inline: auto;
   }
 
+  /* ============================================================
+     SECTION SPACING
+     ============================================================ */
   .section-padding {
-    @apply py-16 sm:py-20 lg:py-24;
+    padding-block: var(--space-3xl);
   }
 
+  .section-padding-sm {
+    padding-block: var(--space-2xl);
+  }
+
+  .section-padding-xs {
+    padding-block: var(--space-xl);
+  }
+
+  /* ============================================================
+     BUTTONS — Modern Royal
+     ============================================================ */
   .btn-primary {
-    @apply inline-flex items-center justify-center px-6 py-3 bg-teal-600 text-white font-semibold rounded-lg 
-           hover:bg-teal-700 transition-all duration-300 shadow-md hover:shadow-lg 
-           focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2
-           text-sm sm:text-base;
+    @apply inline-flex items-center justify-center font-bold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2;
+    padding: 0.875rem 2rem;
+    background: var(--color-champagne);
+    color: var(--color-ink);
+    border-radius: 0.75rem;
+    font-size: var(--fs-small);
+    letter-spacing: 0.025em;
+    box-shadow: 0 4px 16px rgba(199, 166, 106, 0.18);
+  }
+  .btn-primary:hover {
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 24px rgba(199, 166, 106, 0.25);
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center px-6 py-3 bg-white text-navy-900 font-semibold rounded-lg 
-           border-2 border-navy-200 hover:border-teal-500 hover:text-teal-700 transition-all duration-300
-           focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2
-           text-sm sm:text-base;
+    @apply inline-flex items-center justify-center font-bold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2;
+    padding: 0.875rem 2rem;
+    background: transparent;
+    color: var(--color-ink);
+    border: 1.5px solid rgba(11, 23, 34, 0.2);
+    border-radius: 0.75rem;
+    font-size: var(--fs-small);
+    letter-spacing: 0.025em;
+  }
+  .btn-secondary:hover {
+    border-color: var(--color-champagne);
+    color: var(--color-champagne);
+    transform: translateY(-1px);
   }
 
   .btn-accent {
-    @apply inline-flex items-center justify-center px-6 py-3 bg-navy-900 text-white font-semibold rounded-lg
-           hover:bg-navy-800 transition-all duration-300 shadow-md hover:shadow-lg
-           focus:outline-none focus:ring-2 focus:ring-navy-500 focus:ring-offset-2
-           text-sm sm:text-base;
+    @apply inline-flex items-center justify-center font-bold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2;
+    padding: 0.875rem 2rem;
+    background: var(--color-ink);
+    color: #fff;
+    border-radius: 0.75rem;
+    font-size: var(--fs-small);
+    letter-spacing: 0.025em;
+  }
+  .btn-accent:hover {
+    background: var(--color-midnight);
+    transform: translateY(-1px);
   }
 
+  /* ============================================================
+     CARDS — Editorial Elegance, Not SaaS Widgets
+     ============================================================ */
   .card {
-    @apply bg-white rounded-xl shadow-sm border border-navy-100/50 p-6 hover:shadow-md transition-shadow duration-300;
+    background: var(--color-pearl);
+    border-radius: 1rem;
+    border: 1px solid rgba(11, 23, 34, 0.06);
+    padding: 2rem;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  .card:hover {
+    box-shadow: 0 8px 32px rgba(11, 23, 34, 0.06);
+    transform: translateY(-2px);
   }
 
   .card-elevated {
-    @apply bg-white rounded-xl shadow-md border border-navy-100/30 p-6 sm:p-8 hover:shadow-lg transition-shadow duration-300;
+    background: #fff;
+    border-radius: 1.25rem;
+    border: 1px solid rgba(11, 23, 34, 0.06);
+    padding: 2.5rem;
+    box-shadow: 0 4px 24px rgba(11, 23, 34, 0.04);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  .card-elevated:hover {
+    box-shadow: 0 12px 40px rgba(11, 23, 34, 0.08);
+    transform: translateY(-2px);
   }
 
-  .gradient-navy {
-    @apply bg-gradient-to-br from-navy-900 via-navy-800 to-navy-900;
-  }
-
-  .gradient-teal {
-    @apply bg-gradient-to-br from-teal-600 to-teal-800;
+  /* ============================================================
+     GRADIENTS — Royal, Not SaaS
+     ============================================================ */
+  .gradient-ink {
+    background: linear-gradient(135deg, #0B1722 0%, #102535 50%, #0B1722 100%);
   }
 
   .gradient-warm {
-    @apply bg-gradient-to-br from-cream-50 to-sand-50;
+    background: linear-gradient(135deg, #FCFAF5 0%, #F7F3EA 50%, #EDE6D5 100%);
+  }
+
+  .gradient-midnight {
+    background: linear-gradient(180deg, #102535 0%, #0B1722 100%);
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-teal-600 to-navy-700;
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, var(--color-champagne), #D9B87B);
   }
 
+  .text-gradient-ink {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, var(--color-ink), var(--color-midnight));
+  }
+
+  /* ============================================================
+     EYEBROW LABELS — Refined
+     ============================================================ */
+  .eyebrow {
+    font-size: var(--fs-eyebrow);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-champagne);
+  }
+
+  .eyebrow-pill {
+    font-size: var(--fs-eyebrow);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-champagne);
+    background: rgba(199, 166, 106, 0.1);
+    border: 1px solid rgba(199, 166, 106, 0.2);
+    padding: 0.375rem 1rem;
+    border-radius: 2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+  }
+
+  /* ============================================================
+     INPUTS — Warm
+     ============================================================ */
   .input-field {
-    @apply w-full px-4 py-3 border border-navy-200 rounded-lg bg-white text-navy-900
-           placeholder:text-navy-400 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500
-           transition-colors duration-200;
+    width: 100%;
+    padding: 0.875rem 1.25rem;
+    border: 1.5px solid rgba(11, 23, 34, 0.12);
+    border-radius: 0.75rem;
+    background: #fff;
+    color: var(--color-ink);
+    font-size: var(--fs-body);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .input-field::placeholder {
+    color: rgba(11, 23, 34, 0.35);
+  }
+  .input-field:focus {
+    outline: none;
+    border-color: var(--color-champagne);
+    box-shadow: 0 0 0 3px rgba(199, 166, 106, 0.12);
   }
 
   .label-field {
-    @apply block text-sm font-medium text-navy-700 mb-1.5;
+    display: block;
+    font-size: var(--fs-small);
+    font-weight: 600;
+    color: var(--color-ink);
+    margin-bottom: 0.5rem;
+  }
+
+  /* ============================================================
+     DIVIDER ACCENT — Champagne line
+     ============================================================ */
+  .divider-champagne {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--color-champagne), transparent);
+    border: none;
+    margin: 0;
   }
 }
 
 @layer utilities {
   .animate-fade-in {
-    animation: fadeIn 0.6s ease-out forwards;
+    animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
   .animate-slide-up {
-    animation: slideUp 0.6s ease-out forwards;
+    animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 }
 

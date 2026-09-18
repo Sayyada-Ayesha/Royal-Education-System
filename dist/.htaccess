@@ -1,0 +1,23 @@
+# ============================================================
+# ROYAL EDUCATION SYSTEM — APACHE SERVER ROUTING CONFIGURATION
+# ============================================================
+# Ensures compatibility with Hostinger, InfinityFree, and traditional Apache shared hosting.
+# Enables clean SPA URL rewriting so direct links and page refreshes work smoothly.
+# ============================================================
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>
+
+# Security Headers & Caching
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set X-XSS-Protection "1; mode=block"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

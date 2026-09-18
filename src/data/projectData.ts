@@ -1,111 +1,126 @@
 // ============================================================
 // ROYAL EDUCATION SYSTEM — PROJECT SHOWCASE DATA
 // ============================================================
-// EDIT HERE: Add real project examples when available
+// PRD Section 29 & 30: Student Projects & Practical Creation
+// Must feel like REAL, LIGHT, ACHIEVABLE, AGE-APPROPRIATE student work.
+// Structure: Problem -> Learning -> Creation -> Outcome
 // ============================================================
 
 export interface Project {
   id: string;
   title: string;
   category: string;
+  programme: 'Royal Juniors' | 'Royal Gems' | 'Royal Nova';
+  ageGroup: string;
   description: string;
   problem: string;
   learning: string;
   creation: string;
   outcome: string;
   image: string;
-  programme: string;
   tools?: string[];
 }
 
 export const projects: Project[] = [
+  // 1. Royal Juniors (KG - Grade 4): Light, creative, observational
   {
-    id: 'project-1',
-    title: 'Interactive Space Explorer Game',
-    category: 'Scratch',
-    description: 'A Scratch game where players navigate through the solar system, learning about planets.',
-    problem: 'How can we make learning about space fun and interactive?',
-    learning: 'Solar system facts, game logic, animation, storytelling',
-    creation: 'Built an interactive game with multiple levels using Scratch',
-    outcome: 'Students understood planetary facts while developing coding logic',
-    image: '/images/projects/scratch-game.jpg',
-    programme: 'Royal Gems',
-    tools: ['Scratch'],
-  },
-  {
-    id: 'project-2',
-    title: 'Smart Traffic Light Circuit',
-    category: 'Tinkercad',
-    description: 'A virtual circuit that simulates an intelligent traffic light system.',
-    problem: 'How do traffic lights work and how can we make them smarter?',
-    learning: 'Circuit design, LED components, timing logic, sensors',
-    creation: 'Designed and tested a virtual traffic light circuit in Tinkercad',
-    outcome: 'Learners connected electronics to real-world problem solving',
-    image: '/images/projects/tinkercad-circuit.jpg',
-    programme: 'Royal Gems',
-    tools: ['Tinkercad'],
-  },
-  {
-    id: 'project-3',
-    title: 'Photosynthesis Visualization',
-    category: 'Science',
-    description: 'An interactive presentation explaining the photosynthesis process.',
-    problem: 'How can we explain photosynthesis beyond a textbook definition?',
-    learning: 'Biology, scientific process, visual communication, data presentation',
-    creation: 'Created an animated presentation showing the complete process',
-    outcome: 'Learners could explain photosynthesis in their own words with real-world connections',
-    image: '/images/projects/science-viz.jpg',
+    id: 'proj-juniors-1',
+    title: 'Plant Sunlight Observation Journal',
+    category: 'Science & Discovery',
     programme: 'Royal Juniors',
+    ageGroup: 'Grades 2–4',
+    description: 'A 14-day illustrated diary tracking bean sprouts in sunlight versus shade, recording real leaf growth with simple drawings.',
+    problem: 'Do seeds really need sunlight to grow strong stems and green leaves?',
+    learning: 'Photosynthesis basics, regular daily observation, and biological cause-and-effect.',
+    creation: 'Physical growing experiment paired with an illustrated digital digital journal and class presentation.',
+    outcome: 'Explaining plant biology in child\'s own spoken words rather than memorizing a textbook diagram.',
+    image: '/images/projects/plant-journal.jpg',
+    tools: ['Observation Journal', 'Digital Camera / Tablet'],
   },
   {
-    id: 'project-4',
-    title: 'AI Chatbot Assistant',
-    category: 'AI',
-    description: 'A simple AI-powered chatbot that answers questions about a chosen topic.',
-    problem: 'How can AI be used to help people find information quickly?',
-    learning: 'AI concepts, prompting, responsible AI, user experience',
-    creation: 'Built a topic-specific chatbot using AI tools',
-    outcome: 'Students understood AI capabilities and limitations, and built something useful',
-    image: '/images/projects/ai-project.jpg',
-    programme: 'Royal Nova',
-    tools: ['AI Tools', 'Python'],
+    id: 'proj-juniors-2',
+    title: 'Community Kindness Interactive Story',
+    category: 'Creative Logic',
+    programme: 'Royal Juniors',
+    ageGroup: 'Grades 3–4',
+    description: 'A colorful ScratchJr interactive animated story where a character helps neighbours clean a community garden.',
+    problem: 'How can we use technology to tell an inspiring story about empathy and teamwork?',
+    learning: 'Sequential logic, loop blocks, character dialogue, and moral civic values.',
+    creation: 'Built a 3-scene interactive animated story with clickable sound effects and voiceover.',
+    outcome: 'Developed foundational computational thinking while expressing social responsibility.',
+    image: '/images/projects/kindness-story.jpg',
+    tools: ['ScratchJr', 'Audio Recorder'],
   },
+
+  // 2. Royal Gems (Grades 5 - 8): Applied skills, websites, budgeting, circuits
   {
-    id: 'project-5',
-    title: 'Personal Portfolio Website',
-    category: 'Web Development',
-    description: 'A responsive personal website showcasing skills and projects.',
-    problem: 'How can you present your skills and work professionally online?',
-    learning: 'HTML, CSS, responsive design, content structure, digital identity',
-    creation: 'Designed and coded a multi-page personal portfolio website',
-    outcome: 'Learners had a real, published website showcasing their abilities',
-    image: '/images/projects/web-project.jpg',
-    programme: 'Royal Nova',
-    tools: ['HTML', 'CSS', 'JavaScript'],
-  },
-  {
-    id: 'project-6',
-    title: 'Community Problem-Solving Presentation',
-    category: 'Communication',
-    description: 'A structured presentation identifying and proposing solutions to a local community challenge.',
-    problem: 'How can young learners identify and address real community issues?',
-    learning: 'Research, critical thinking, public speaking, persuasive communication',
-    creation: 'Prepared and delivered a structured presentation with evidence and solutions',
-    outcome: 'Learners developed confidence, research skills and empathy for community needs',
-    image: '/images/projects/presentation.jpg',
+    id: 'proj-gems-1',
+    title: 'School Stationery Budgeting Tool',
+    category: 'Practical Math & Finance',
     programme: 'Royal Gems',
+    ageGroup: 'Grades 6–7',
+    description: 'A practical financial spreadsheet and interactive dashboard modeling student allowance, stationery costs, and savings goals.',
+    problem: 'How do family budgets handle everyday expenses and avoid overspending?',
+    learning: 'Percentages, unit rates, basic accounting principles, and data visualization.',
+    creation: 'Calculated real-life item costs and built an automated spreadsheet with visual spending charts.',
+    outcome: 'Connecting mathematics to real money management and thoughtful household decisions.',
+    image: '/images/projects/budget-tool.jpg',
+    tools: ['Google Sheets / Excel', 'Data Charts'],
+  },
+  {
+    id: 'proj-gems-2',
+    title: 'Smart Room Temperature Alert Prototype',
+    category: 'Applied Technology & Code',
+    programme: 'Royal Gems',
+    ageGroup: 'Grades 7–8',
+    description: 'A virtual circuit built on Tinkercad simulating a temperature sensor that activates a fan and LED alert when a room gets hot.',
+    problem: 'How do thermostats automate climate control in classrooms and homes?',
+    learning: 'Sensor inputs, threshold conditionals in block/C++ code, and circuit safety.',
+    creation: 'Designed and tested a functional temperature-sensing virtual circuit with real-time feedback.',
+    outcome: 'Gained hands-on electronics intuition connecting science theory with software logic.',
+    image: '/images/projects/smart-sensor.jpg',
+    tools: ['Tinkercad Circuits', 'Microcontroller Logic'],
+  },
+
+  // 3. Royal Nova (Grade 9+ & Adults): Specialized, portfolios, modern web & AI
+  {
+    id: 'proj-nova-1',
+    title: 'Local Small Business Portfolio Website',
+    category: 'Web Development',
+    programme: 'Royal Nova',
+    ageGroup: 'Grade 9+',
+    description: 'A modern, responsive multi-page website prototype designed for an independent artisan bakery with menu and contact inquiry.',
+    problem: 'How can small local artisans build an appealing, professional digital storefront?',
+    learning: 'HTML5 semantic architecture, Tailwind CSS styling, UX layout hierarchy, and mobile responsiveness.',
+    creation: 'Crafted a clean, fully functional front-end website with responsive navigation and inquiry forms.',
+    outcome: 'Created a tangible portfolio piece demonstrating web development and digital brand presence.',
+    image: '/images/projects/business-web.jpg',
+    tools: ['HTML5', 'Tailwind CSS', 'JavaScript'],
+  },
+  {
+    id: 'proj-nova-2',
+    title: 'Student Study Schedule AI Assistant',
+    category: 'Applied AI & Automation',
+    programme: 'Royal Nova',
+    ageGroup: 'Grade 9+',
+    description: 'A Python script utilizing structured prompt engineering to break large exam syllabi into daily, manageable study milestones.',
+    problem: 'How can students manage examination anxiety and study workloads efficiently?',
+    learning: 'Python programming, API integration concepts, prompt optimization, and responsible AI ethics.',
+    creation: 'Engineered a command-line and web-assisted study planner delivering personalized daily agendas.',
+    outcome: 'Utilized AI as a productivity tool rather than a shortcut, understanding both utility and ethical limits.',
+    image: '/images/projects/ai-planner.jpg',
+    tools: ['Python', 'Prompt Engineering', 'Markdown Output'],
   },
 ];
 
 export const projectCategories = [
   'All',
-  'Scratch',
-  'Tinkercad',
-  'Science',
-  'AI',
+  'Science & Discovery',
+  'Practical Math & Finance',
+  'Applied Technology & Code',
+  'Creative Logic',
   'Web Development',
-  'Communication',
-  'Coding',
+  'Applied AI & Automation',
 ];
 
 export default projects;

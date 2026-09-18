@@ -230,17 +230,15 @@ export const learningMethod = {
 
 // Royal Nova skills
 export const novaSkills = [
-  { name: 'AI', icon: 'Brain', description: 'Artificial intelligence foundations, applications and ethics' },
-  { name: 'Coding', icon: 'Code', description: 'Programming fundamentals and software development' },
-  { name: 'Python', icon: 'Terminal', description: 'Python programming for data, automation and AI' },
-  { name: 'Web Development', icon: 'Globe', description: 'Build modern websites and web applications' },
-  { name: 'Communication', icon: 'MessageSquare', description: 'Public speaking, writing and professional communication' },
-  { name: 'Digital Skills', icon: 'Monitor', description: 'Essential digital literacy for the modern world' },
-  { name: 'Entrepreneurship', icon: 'Rocket', description: 'Business thinking, planning and innovation' },
-  { name: 'Technology', icon: 'Cpu', description: 'Computing, systems and emerging technology' },
-  { name: 'Creative Computing', icon: 'Palette', description: 'Design, multimedia and creative technology' },
-  { name: 'Mathematics', icon: 'Calculator', description: 'Applied mathematics and problem-solving' },
-  { name: 'Science', icon: 'FlaskConical', description: 'Scientific inquiry, experiments and discovery' },
+  { name: 'AI & Automation Solutions', icon: 'Brain', description: 'Prompt engineering, agentic workflows, LLM applications, and ethical AI integration.' },
+  { name: 'Python & Software Logic', icon: 'Terminal', description: 'Python programming, task automation, data handling, and backend logic.' },
+  { name: 'Full-Stack Web Development', icon: 'Globe', description: 'Modern responsive websites, interactive web applications, and live hosting.' },
+  { name: 'Graphic & Digital Design', icon: 'Palette', description: 'Visual hierarchy, brand identity, layout composition, and design presentation.' },
+  { name: 'Video Editing & Media', icon: 'Monitor', description: 'Video post-production, timeline sequencing, pacing, and multi-platform media.' },
+  { name: 'Client & Professional Communication', icon: 'MessageSquare', description: 'Pitching ideas, client proposals, structured technical debates, and leadership poise.' },
+  { name: 'Digital Portfolio & Presence', icon: 'Rocket', description: 'Curating, deploying, and presenting verifiable real-world projects to employers or universities.' },
+  { name: 'Applied Mathematics & Finance', icon: 'Calculator', description: 'Data modeling, quantitative problem-solving, budgeting, and analytical reasoning.' },
+  { name: 'Applied Science & Computing', icon: 'Cpu', description: 'Computing architecture, practical experimentation, and emerging tech.' },
 ];
 
 export default programmes;

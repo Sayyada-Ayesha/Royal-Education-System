@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { 
   Calculator, FlaskConical, Book, MessageSquare, 
-  Monitor, Code, Bot, Wrench, Lightbulb, Puzzle, 
-  Users, Shield, Compass, ArrowRight, CheckCircle
+  Code, Bot, Wrench, Lightbulb, 
+  Compass, ArrowRight, CheckCircle, Video, TrendingUp, Layout
 } from 'lucide-react';
 import { gradePricing } from '../data/pricingData';
 import { projects } from '../data/projectData';
@@ -12,44 +12,50 @@ import PageHero from '../components/PageHero';
 import SectionHeader from '../components/SectionHeader';
 import CTASection from '../components/CTASection';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
 const focusAreas = [
-  { title: 'Mathematics', icon: Calculator, desc: 'Advanced problem solving and analytical reasoning.' },
-  { title: 'Science', icon: FlaskConical, desc: 'Applied scientific methods and real-world exploration.' },
-  { title: 'English', icon: Book, desc: 'Critical reading, essay writing, and advanced grammar.' },
-  { title: 'Communication', icon: MessageSquare, desc: 'Debate, presentation skills, and active listening.' },
-  { title: 'Computer Science', icon: Monitor, desc: 'Hardware, software, and systems understanding.' },
-  { title: 'Coding', icon: Code, desc: 'Programming logic, algorithms, and syntax.' },
-  { title: 'AI Literacy', icon: Bot, desc: 'Understanding and using artificial intelligence responsibly.' },
-  { title: 'Practical Projects', icon: Wrench, desc: 'Hands-on creation and application of learned concepts.' },
-  { title: 'Critical Thinking', icon: Lightbulb, desc: 'Evaluating information and forming reasoned judgements.' },
-  { title: 'Problem Solving', icon: Puzzle, desc: 'Tackling complex, multi-step challenges.' },
-  { title: 'Life Skills', icon: Users, desc: 'Time management, organization, and teamwork.' },
-  { title: 'Digital Citizenship', icon: Shield, desc: 'Online safety, etiquette, and footprint awareness.' },
-  { title: 'Character & Values', icon: Compass, desc: 'Integrity, resilience, and global awareness.' }
+  { title: 'Practical Mathematics', icon: Calculator, desc: 'Budgeting, financial awareness, everyday calculations, science modeling, and measurement.' },
+  { title: 'Applied Science & Inquiry', icon: FlaskConical, desc: 'Hypothesis testing, physical simulations, and experimental observation.' },
+  { title: 'Expressive English & Debate', icon: Book, desc: 'Persuasive writing, literary analysis, structured speech, and active debate poise.' },
+  { title: 'Financial Literacy & Accounting', icon: TrendingUp, desc: 'Money management, unit costs, basic accounting principles, and economic reasoning.' },
+  { title: 'Coding & Web Development', icon: Code, desc: 'Algorithmic logic, Python syntax, and structuring functional web pages with HTML/CSS.' },
+  { title: 'AI Solutions & Automation', icon: Bot, desc: 'Practical AI tools, agent workflows, prompt problem-solving, and responsible tech ethics.' },
+  { title: 'Graphic & Digital Design', icon: Layout, desc: 'Visual hierarchy, digital composition, typography, and professional presentation assets.' },
+  { title: 'Video Editing & Media', icon: Video, desc: 'Scripting, recording, video sequencing, and audio design to document student projects.' },
+  { title: 'Public Presentation & Poise', icon: MessageSquare, desc: 'Expressing complex ideas clearly with structured slide decks and verbal confidence.' },
+  { title: 'Tangible Student Capstones', icon: Wrench, desc: 'Hands-on construction: digital portfolios, functional web pages, and scientific artifacts.' }
 ];
 
 export default function RoyalGemsPage() {
+  useDocumentTitle('Royal Gems (Grades 5–8) | The Royal Education System');
   const [revealRef, isVisible] = useScrollReveal();
   
-  const gemsPricing = gradePricing.filter(p => ['Grade 5', 'Grade 6', 'Grade 7', 'Grade 8'].includes(p.grade));
-  const gemsProjects = projects.filter(p => p.category === 'Science' || p.category === 'Technology').slice(0, 3);
+  const gemsPricing = gradePricing.filter(p => p.programme === 'Royal Gems');
+  const gemsProjects = projects.slice(0, 3);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-ivory-50">
       <PageHero 
         title="Royal Gems" 
-        subtitle="Development Pathway — Grades 5 to 8"
+        subtitle="Development & Capability Phase — Grades 5 to 8"
+        variant="B"
+        breadcrumbs={[
+          { label: 'Programmes', path: '/programmes' },
+          { label: 'Royal Gems' }
+        ]}
       />
       
-      {/* Tagline Section */}
-      <section className="py-20 bg-sand-50">
-        <div className="max-w-4xl mx-auto px-6 text-center" ref={revealRef}>
+      {/* Editorial Lead Section */}
+      <section className="section-padding bg-pearl-100 border-b border-ink-100/8">
+        <div className="site-container-narrow text-center" ref={revealRef}>
+          <span className="eyebrow-pill mb-4">Development Phase</span>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-3xl md:text-5xl font-jakarta text-navy-900 font-bold leading-tight"
+            className="font-heading text-ink-950 font-bold leading-tight mt-4 mb-6"
+            style={{ fontSize: 'var(--fs-h2)' }}
           >
             Turn knowledge into capability.
           </motion.h2>
@@ -57,32 +63,35 @@ export default function RoyalGemsPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-6 text-lg text-slate-600 max-w-2xl mx-auto"
+            className="text-ink-600 max-w-2xl mx-auto leading-relaxed"
+            style={{ fontSize: 'var(--fs-body-lg)' }}
           >
-            Middle school is where foundational skills become powerful tools. Royal Gems challenges students to apply what they know, build their technical skills, and develop independent thought.
+            Grades 5 to 8 are the crucial bridge where abstract knowledge transforms into practical capability. Learners do not merely memorize textbook definitions—they code, calculate real budgets, formulate arguments, and build.
           </motion.p>
         </div>
       </section>
 
       {/* Focus Areas */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="section-padding bg-ivory-50">
+        <div className="site-container">
           <SectionHeader 
-            title="Comprehensive Curriculum" 
-            description="Preparing students for the complexity of high school and beyond with a robust, modern skill set."
+            title="Integrated Capability Curriculum" 
+            description="Connecting academic rigor with technology, practical mathematics, and real communication skills."
             align="center"
           />
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6 mt-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5 mt-14">
             {focusAreas.map((area, index) => {
               const Icon = area.icon;
               return (
-                <div key={index} className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md hover:border-navy-200 transition-all">
-                  <div className="w-12 h-12 bg-navy-50 text-navy-700 rounded-lg flex items-center justify-center mb-4">
-                    <Icon size={24} />
+                <div key={index} className="card flex flex-col justify-between">
+                  <div>
+                    <div className="w-11 h-11 bg-champagne-100/80 text-champagne-700 rounded-xl flex items-center justify-center mb-4 border border-champagne-200/50">
+                      <Icon size={22} />
+                    </div>
+                    <h3 className="text-base font-bold text-ink-950 mb-2 font-heading">{area.title}</h3>
+                    <p className="text-xs text-ink-600 leading-relaxed">{area.desc}</p>
                   </div>
-                  <h3 className="text-lg font-bold text-navy-900 mb-2 font-jakarta">{area.title}</h3>
-                  <p className="text-sm text-slate-600 leading-relaxed">{area.desc}</p>
                 </div>
               );
             })}
@@ -91,36 +100,43 @@ export default function RoyalGemsPage() {
       </section>
 
       {/* Tech & Coding Section */}
-      <section className="py-24 bg-navy-900 text-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+      <section className="section-padding gradient-ink text-white relative overflow-hidden">
+        <div className="site-container">
+          <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="order-2 md:order-1 relative">
               <img 
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop" 
-                alt="Students collaborating on laptops" 
-                className="rounded-2xl shadow-2xl"
+                src="/images/Slideshow/4.jpeg" 
+                alt="Students collaborating on projects" 
+                className="rounded-2xl shadow-2xl border border-champagne-400/20 object-cover aspect-[4/3] w-full"
               />
-              <div className="absolute -bottom-6 -right-6 bg-accent-gold p-6 rounded-xl shadow-xl max-w-xs">
-                <Code className="text-navy-900 mb-3" size={32} />
-                <p className="text-navy-900 font-bold">Future-Ready Tech Skills</p>
+              <div className="absolute -bottom-6 -right-6 bg-champagne-500 text-ink-950 p-6 rounded-xl shadow-xl max-w-xs border border-champagne-300">
+                <Code className="text-ink-950 mb-2" size={28} />
+                <p className="font-bold text-sm font-heading">Future-Ready Capability</p>
+                <p className="text-xs text-ink-900/80 mt-1">From algorithmic logic to functional student software.</p>
               </div>
             </div>
             <div className="order-1 md:order-2">
-              <h2 className="text-3xl md:text-4xl font-jakarta font-bold mb-6 text-white">Technology & Coding Progression</h2>
-              <p className="text-slate-300 text-lg mb-8">
-                In the modern world, digital literacy is as important as reading and writing. We integrate serious tech education into the middle school years.
+              <span className="eyebrow-pill text-champagne-300 bg-champagne-400/10 border-champagne-400/20 mb-4">
+                Technology & Digital Presence
+              </span>
+              <h2 className="font-heading font-bold mb-6 text-white mt-4" style={{ fontSize: 'var(--fs-h2)' }}>
+                Applied Technology, Not Passive Screen Time
+              </h2>
+              <p className="text-ivory-200/75 text-base mb-8 leading-relaxed">
+                In the middle years (Grades 5–8), education shifts from passive textbook intake to active creation and capability. Learners build functional websites, program algorithmic code, deploy AI workflows, edit project videos, and master practical mathematics.
               </p>
-              <ul className="space-y-4">
+              <ul className="space-y-3.5">
                 {[
-                  'Introduction to Logic & Algorithms',
-                  'Block-based to Text-based Coding (Python/JS)',
-                  'Web Development Basics (HTML/CSS)',
-                  'Understanding AI and Machine Learning concepts',
-                  'Digital Ethics and Online Safety'
+                  'Practical Mathematics: budgeting, everyday decisions, personal finance & scientific measurement',
+                  'Coding & computational logic: from algorithmic blocks to Python syntax',
+                  'Web development foundations: HTML/CSS responsive project sites',
+                  'Applied AI: understanding LLMs, prompt engineering, agentic workflows, and ethical boundaries',
+                  'Digital media creation: graphic design, typography, video editing, and public portfolio presentation',
+                  'Tangible student capstones: documented artifacts demonstrating real capability'
                 ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <CheckCircle className="text-teal-400 mt-1 flex-shrink-0" size={20} />
-                    <span className="text-slate-200">{item}</span>
+                  <li key={i} className="flex items-start gap-3 p-3 rounded-xl bg-white/4 border border-white/8">
+                    <CheckCircle className="text-champagne-400 mt-0.5 flex-shrink-0" size={18} />
+                    <span className="text-ivory-200/85 text-sm">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -130,24 +146,38 @@ export default function RoyalGemsPage() {
       </section>
 
       {/* Projects Showcase */}
-      <section className="py-24 bg-cream-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <SectionHeader 
-            title="Learning by Doing" 
-            description="Students apply their knowledge through practical, cross-curricular projects."
-            align="center"
-          />
+      <section className="section-padding bg-pearl-100 border-b border-ink-100/8">
+        <div className="site-container">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
+            <div>
+              <span className="eyebrow-pill mb-3">Tangible Outcomes</span>
+              <h2 className="font-heading font-bold text-ink-950 mt-3" style={{ fontSize: 'var(--fs-h2)' }}>
+                Sample Royal Gems Projects
+              </h2>
+              <p className="text-ink-500 text-sm mt-2">Real, age-appropriate work created by middle school learners.</p>
+            </div>
+            <Link to="/projects" className="btn-secondary text-xs">
+              View All Student Work <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
+            </Link>
+          </div>
           
-          <div className="grid md:grid-cols-3 gap-8 mt-12">
+          <div className="grid md:grid-cols-3 gap-6">
             {gemsProjects.map((project, idx) => (
-              <div key={idx} className="bg-white rounded-xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-lg transition-all">
-                <div className="h-48 bg-slate-200 overflow-hidden">
+              <div key={idx} className="card p-0 overflow-hidden flex flex-col justify-between">
+                <div className="h-48 overflow-hidden relative">
                   <img src={project.image} alt={project.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                  <div className="absolute top-3 left-3 bg-ink-950/80 backdrop-blur-sm text-champagne-300 text-xs px-2.5 py-1 rounded-full font-bold">
+                    {project.category}
+                  </div>
                 </div>
-                <div className="p-6">
-                  <div className="text-xs font-bold text-teal-600 uppercase tracking-wider mb-2">{project.category}</div>
-                  <h3 className="text-xl font-bold text-navy-900 mb-2 font-jakarta">{project.title}</h3>
-                  <p className="text-slate-600 text-sm">{project.description}</p>
+                <div className="p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-lg font-bold text-ink-950 mb-2 font-heading">{project.title}</h3>
+                    <p className="text-ink-600 text-xs leading-relaxed">{project.description}</p>
+                  </div>
+                  <div className="mt-4 pt-3 border-t border-ink-100/10 text-[11px] text-ink-400">
+                    {project.ageGroup} • {project.programme}
+                  </div>
                 </div>
               </div>
             ))}
@@ -155,52 +185,63 @@ export default function RoyalGemsPage() {
         </div>
       </section>
 
-      {/* Pricing Preview */}
-      <section className="py-24 bg-white">
-        <div className="max-w-4xl mx-auto px-6">
-          <SectionHeader title="Tuition Fees" align="center" />
+      {/* Tuition Transparency */}
+      <section className="section-padding bg-ivory-50">
+        <div className="site-container-narrow">
+          <SectionHeader 
+            title="Tuition Fees — Royal Gems" 
+            subtitle="Grades 5 to 8. Each grade represents one full academic year. All fees are paid in advance."
+            align="center" 
+          />
           
-          <div className="bg-navy-50 rounded-2xl p-8 border border-navy-100 mt-12">
-            <div className="space-y-4">
+          <div className="card-elevated mt-10">
+            <div className="space-y-4 divide-y divide-ink-100/10">
               {gemsPricing.map((item, i) => (
-                <div key={i} className="flex justify-between items-center py-4 border-b border-navy-200 last:border-0">
-                  <span className="font-bold text-navy-900 text-lg">{item.grade}</span>
-                  <span className="text-navy-700 font-semibold text-lg">{item.aed} / {item.usd}</span>
+                <div key={i} className="flex justify-between items-center pt-4 first:pt-0">
+                  <div>
+                    <span className="font-bold text-ink-950 text-base font-heading block">{item.label}</span>
+                    <span className="text-xs text-ink-400">Core academics, practical math, coding, AI & student portfolio capstones</span>
+                  </div>
+                  <div className="text-right">
+                    <span className="text-champagne-600 font-bold text-lg font-heading">AED {item.aed}</span>
+                    <span className="text-ink-400 text-xs block">~ ${item.usd} /mo (in advance)</span>
+                  </div>
                 </div>
               ))}
             </div>
-            <div className="mt-8 text-center text-sm text-slate-500">
-              *Admission fee and material costs may apply. Prices subject to change.
+
+            <div className="mt-6 p-4 rounded-xl bg-pearl-100/80 border border-ink-100/8 text-xs text-ink-700 space-y-1.5">
+              <div className="font-bold text-ink-950 flex items-center justify-between">
+                <span>Advance Payment Discount Schedules:</span>
+                <span className="text-champagne-700 font-medium">Monthly / Quarterly / Bi-annual / Annual</span>
+              </div>
+              <p className="text-ink-500">
+                • <strong>Monthly</strong>: Standard fee paid in advance • <strong>3 Months</strong>: 3% savings • <strong>6 Months</strong>: 5% savings • <strong>Full Year</strong>: 10% savings
+              </p>
+              <p className="text-[11px] text-ink-400 italic">
+                *Payment intervals are billing options, not programme durations. Grades 5–8 represent 4 full academic learning years.
+              </p>
+            </div>
+
+            <div className="mt-6 pt-6 border-t border-ink-100/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-ink-500">
+              <span>*Need-based scholarship support may be available, subject to assessment and available funding.</span>
+              <Link to="/fees" className="text-champagne-600 font-bold hover:underline flex items-center gap-1">
+                View global fees &amp; Pakistan tuition <ArrowRight size={14} />
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTAs */}
-      <div className="bg-white pb-24">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-6">
-          <div className="bg-navy-800 rounded-2xl p-10 text-white text-center">
-            <h3 className="text-2xl font-bold font-jakarta mb-4">Book a Free Assessment</h3>
-            <p className="text-slate-300 mb-8">Evaluate academic standing and readiness for advanced learning.</p>
-            <Link to="/book-assessment" className="inline-flex items-center gap-2 bg-teal-500 hover:bg-teal-400 text-white px-6 py-3 rounded-lg font-medium transition-colors">
-              Book Assessment <ArrowRight size={18} />
-            </Link>
-          </div>
-          <div className="bg-sand-50 border border-slate-200 rounded-2xl p-10 text-navy-900 text-center">
-            <h3 className="text-2xl font-bold font-jakarta mb-4">Book a Free Demo</h3>
-            <p className="text-slate-600 mb-8">See how we integrate technology and practical projects in class.</p>
-            <Link to="/book-demo" className="inline-flex items-center gap-2 bg-navy-900 text-white hover:bg-navy-800 px-6 py-3 rounded-lg font-medium transition-colors">
-              Book Demo <ArrowRight size={18} />
-            </Link>
-          </div>
-        </div>
-      </div>
-      
+      {/* Contextual CTA */}
       <CTASection 
-        title="Prepare for the Future" 
-        description="Empower your child with the skills they need to thrive in a changing world." 
-        primaryButtonText="Contact Us"
-        primaryButtonLink="/query"
+        title="Elevate Your Child's Learning with Royal Gems" 
+        description="Book a free comprehensive learning assessment to assess academic foundations and technical readiness." 
+        primaryButtonText="Book Free Assessment"
+        primaryButtonLink="/free-assessment"
+        secondaryButtonText="Explore Projects"
+        secondaryButtonLink="/projects"
+        variant="navy"
       />
     </div>
   );

@@ -1,48 +1,45 @@
 // ============================================================
 // ROYAL EDUCATION SYSTEM — MEDIA CONFIGURATION
 // ============================================================
-// CHANGE HERO VIDEO HERE: Replace with your actual video path
-// CHANGE HERO IMAGES HERE: Replace with your actual image paths
+// All paths point to actual verified assets in public/
 // ============================================================
 
 export const mediaConfig = {
-  // CHANGE HERO VIDEO HERE
-  heroVideo: '/videos/hero-video.mp4',
-  heroVideoPoster: '/images/hero/hero-poster.jpg',
+  // Hero Media
+  heroVideo: '/videos/Hero Video.mp4',
+  heroVideoPoster: '/images/Slideshow/1.jpeg',
 
-  // CHANGE HERO IMAGES HERE: Shown after video ends
+  // Hero Slideshow — ALL 9 numbered images in ascending numerical order
+  slideshowDuration: 4000,
   heroImages: [
-    {
-      src: '/images/hero/hero-student-learning.jpg',
-      alt: 'Student engaged in interactive online learning',
-    },
-    {
-      src: '/images/hero/hero-science-technology.jpg',
-      alt: 'Young learner exploring science and technology',
-    },
-    {
-      src: '/images/hero/hero-future-skills.jpg',
-      alt: 'Students building future-ready skills through projects',
-    },
+    { src: '/images/Slideshow/1.jpeg', alt: '1 — Student engaged in interactive conceptual learning' },
+    { src: '/images/Slideshow/2.jpeg', alt: '2 — Young learner exploring applied projects' },
+    { src: '/images/Slideshow/3.jpeg', alt: '3 — Building future-ready technological capability' },
+    { src: '/images/Slideshow/4.jpeg', alt: '4 — Collaborative academic and skills development' },
+    { src: '/images/Slideshow/5.jpeg', alt: '5 — Practical skills and creative exploration' },
+    { src: '/images/Slideshow/6.jpeg', alt: '6 — Structured problem solving and mathematical inquiry' },
+    { src: '/images/Slideshow/7.jpeg', alt: '7 — Advanced digital and professional learning' },
+    { src: '/images/Slideshow/8.jpeg', alt: '8 — Technology and artificial intelligence literacy' },
+    { src: '/images/Slideshow/9.jpeg', alt: '9 — Holistic character, values and personal growth' },
   ],
 
-  // EDIT HERE: Programme images
+  // Verified Programme Images (matching each specific educational stage)
   programmeImages: {
-    juniors: '/images/programmes/royal-juniors.jpg',
-    gems: '/images/programmes/royal-gems.jpg',
-    nova: '/images/programmes/royal-nova.jpg',
+    juniors: '/images/Slideshow/1.jpeg', // Young learner, discovery, early habits
+    gems: '/images/Slideshow/4.jpeg',    // Skills, practical math, coding, design
+    nova: '/images/Slideshow/7.jpeg',    // Specialization, advanced tech, portfolio
   },
 
-  // EDIT HERE: Section background images
+  // Verified Section Images (using verified slideshow assets)
   sectionImages: {
-    about: '/images/sections/about.jpg',
-    academics: '/images/sections/academics.jpg',
-    technology: '/images/sections/technology.jpg',
-    faithValues: '/images/sections/faith-values.jpg',
-    projects: '/images/sections/projects.jpg',
+    about: '/images/Slideshow/5.jpeg',
+    academics: '/images/Slideshow/6.jpeg',
+    technology: '/images/Slideshow/8.jpeg',
+    faithValues: '/images/Slideshow/9.jpeg',
+    projects: '/images/Slideshow/2.jpeg',
   },
 
-  // CHANGE YOUTUBE LINK HERE
+  // YouTube / Social Embed
   youtubeEmbed: '#',
 };
 

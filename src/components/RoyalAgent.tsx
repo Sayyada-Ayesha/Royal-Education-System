@@ -88,15 +88,15 @@ export const RoyalAgent: React.FC = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="absolute bottom-20 right-0 w-[320px] h-[480px] bg-white rounded-2xl shadow-2xl border border-navy-900/10 flex flex-col overflow-hidden sm:w-[350px]"
+            className="absolute bottom-20 right-0 w-[320px] h-[480px] bg-white rounded-2xl shadow-2xl border border-ink-100/10 flex flex-col overflow-hidden sm:w-[350px]"
           >
             {/* Header */}
-            <div className="bg-navy-900 text-white p-4 flex items-center justify-between">
+            <div className="gradient-ink text-white p-4 flex items-center justify-between border-b border-champagne-400/20">
               <div className="flex items-center space-x-3">
-                <div className="w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center">
-                  <Bot className="w-5 h-5 text-white" />
+                <div className="w-8 h-8 bg-champagne-400 rounded-full flex items-center justify-center shadow-sm">
+                  <Bot className="w-5 h-5 text-ink-950" />
                 </div>
-                <span className="font-jakarta font-semibold">Royal Agent</span>
+                <span className="font-heading font-semibold text-sm">Royal Advisor</span>
               </div>
               <button
                 onClick={() => setIsOpen(false)}
@@ -108,7 +108,7 @@ export const RoyalAgent: React.FC = () => {
             </div>
 
             {/* Messages Area */}
-            <div className="flex-1 overflow-y-auto p-4 bg-sand-50 space-y-4">
+            <div className="flex-1 overflow-y-auto p-4 bg-ivory-50 space-y-4">
               {messages.map((msg) => (
                 <div
                   key={msg.id}
@@ -117,17 +117,17 @@ export const RoyalAgent: React.FC = () => {
                   <div
                     className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm ${
                       msg.type === 'user'
-                        ? 'bg-teal-600 text-white rounded-br-sm'
-                        : 'bg-white text-navy-900 shadow-sm border border-navy-900/5 rounded-bl-sm'
+                        ? 'bg-champagne-500 text-white rounded-br-sm shadow-sm'
+                        : 'bg-white text-ink-950 shadow-sm border border-ink-100/10 rounded-bl-sm'
                     }`}
                   >
                     <p className="whitespace-pre-wrap">{msg.text}</p>
                     {msg.link && msg.linkText && (
-                      <div className="mt-2 pt-2 border-t border-navy-900/10">
+                      <div className="mt-2 pt-2 border-t border-ink-100/10">
                         <Link
                           to={msg.link}
                           onClick={() => setIsOpen(false)}
-                          className="text-teal-600 font-semibold hover:text-teal-700 underline text-sm"
+                          className="text-champagne-600 font-semibold hover:text-champagne-700 underline text-sm"
                         >
                           {msg.linkText}
                         </Link>
@@ -140,19 +140,19 @@ export const RoyalAgent: React.FC = () => {
             </div>
 
             {/* Input Area */}
-            <div className="p-3 bg-white border-t border-navy-900/10 flex items-center gap-2">
+            <div className="p-3 bg-white border-t border-ink-100/10 flex items-center gap-2">
               <input
                 type="text"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder="Ask me anything..."
-                className="flex-1 px-4 py-2 rounded-full border border-navy-900/10 focus:outline-none focus:border-teal-500 text-sm"
+                placeholder="Ask a question about RES..."
+                className="flex-1 px-4 py-2 rounded-full border border-ink-100/20 focus:outline-none focus:border-champagne-400 text-sm text-ink-950 placeholder:text-ink-300"
               />
               <button
                 onClick={handleSend}
                 disabled={!inputValue.trim()}
-                className="w-10 h-10 bg-teal-600 text-white rounded-full flex items-center justify-center hover:bg-teal-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex-shrink-0"
+                className="w-10 h-10 bg-champagne-400 text-ink-950 rounded-full flex items-center justify-center hover:bg-champagne-300 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex-shrink-0 font-bold"
                 aria-label="Send message"
               >
                 <Send className="w-4 h-4 ml-0.5" />
@@ -164,7 +164,7 @@ export const RoyalAgent: React.FC = () => {
 
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-14 h-14 bg-navy-900 hover:bg-navy-800 text-white rounded-full shadow-lg flex items-center justify-center transition-transform hover:scale-105 active:scale-95 focus:outline-none"
+        className="w-14 h-14 gradient-ink text-champagne-300 hover:text-white rounded-full shadow-xl border border-champagne-400/30 flex items-center justify-center transition-transform hover:scale-105 active:scale-95 focus:outline-none"
         aria-label="Open chat"
       >
         {isOpen ? <X className="w-6 h-6" /> : <MessageSquare className="w-6 h-6" />}
@@ -172,11 +172,5 @@ export const RoyalAgent: React.FC = () => {
     </div>
   );
 };
-
-
-
-
-
-
 
 export default RoyalAgent;
